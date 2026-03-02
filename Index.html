@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كاريير بلس | استمارة بيانات السيرة الذاتية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #f8fafc; }
+        .step-hidden { display: none; }
+        .active-step { display: block; animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .primary-color { background-color: #0f172a; } /* Navy */
+        .secondary-color { background-color: #06b6d4; } /* Cyan */
+        .accent-text { color: #06b6d4; }
+    </script>
+</head>
+<body class="p-4 md:p-8">
+
+
+    <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
+        <!-- Header -->
+        <div class="primary-color p-8 text-white text-center">
+            <div class="flex justify-center mb-4">
+                 <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="25" y="15" width="50" height="70" rx="4" stroke="white" stroke-width="4"/>
+                    <path d="M35 40 H55 M35 55 H65 M35 70 H60" stroke="#06b6d4" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M10 60 Q25 40 40 60 T70 60 L85 30" stroke="white" stroke-width="3" fill="none" />
+                    <path d="M80 30 L90 30 L85 20 Z" fill="white"/>
+                </svg>
+            </div>
+            <h1 class="text-2xl md:text-3xl font-bold mb-2">كاريير بلس - Career Pulse</h1>
+            <p class="text-cyan-400 text-sm md:text-base font-medium">نصمم مستقبلك بلمسة احترافية</p>
+        </div>
+
+
+        <!-- Progress Bar -->
+        <div class="w-full bg-gray-200 h-2">
+            <div id="progress-bar" class="secondary-color h-2 transition-all duration-500" style="width: 20%;"></div>
+        </div>
+
+
+        <!-- Form Container -->
+        <form id="cv-form" class="p-6 md:p-10">
+            
+            <!-- Step 1: Personal Info -->
+            <div class="form-step active-step" id="step-1">
+                <h2 class="text-xl font-bold mb-6 flex items-center gap-2">
+                    <span class="secondary-color text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">1</span>
+                    البيانات الشخصية والاتصال
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">الاسم الثلاثي بالكامل *</label>
+                        <input type="text" name="fullName" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-cyan-500 outline-none" placeholder="محمد أحمد علي">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">رقم الهاتف (واتساب) *</label>
+                        <input type="tel" name="phone" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-cyan-500 outline-none" placeholder="01234567890">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-semibold mb-1">البريد الإلكتروني الاحترافي *</label>
+                        <input type="email" name="email" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-cyan-500 outline-none" placeholder="name@example.com">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">رابط LinkedIn (اختياري)</label>
+                        <input type="url" name="linkedin" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-cyan-500 outline-none" placeholder="https://linkedin.com/in/username">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">السكن الحالي (المدينة)</label>
+                        <input type="text" name="location" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-cyan-500 outline-none" placeholder="القاهرة، مصر">
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Step 2: Goal -->
+            <div class="form-step step-hidden" id="step-2">
+                <h2 class="text-xl font-bold mb-6 flex items-center gap-2">
+                    <span class="secondary-color text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">2</span>
+                    الهدف الوظيفي
+                </h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">المسمى الوظيفي المستهدف *</label>
+                        <input type="text" name="targetRole" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-cyan-500 outline-none" placeholder="مدير مبيعات / محاسب مالي">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">القطاع المفضل (بنوك، سياحة، تكنولوجيا..)</label>
+                        <input type="text" name="targetIndustry" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-cyan-500 outline-none" placeholder="مثلاً: شركات الاتصالات">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">نبذة قصيرة عنك (عن طموحك المهني)</label>
+                        <textarea name="summary" rows="3" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-cyan-500 outline-none" placeholder="اكتب في جملتين إيه اللي بيميزك.."></textarea>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Step 3: Experience -->
+            <div class="form-step step-hidden" id="step-3">
+                <h2 class="text-xl font-bold mb-6 flex items-center gap-2">
+                    <span class="secondary-color text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">3</span>
+                    الخبرات العملية والإنجازات
+                </h2>
+                <div class="bg-blue-50 p-4 rounded-lg mb-6 border-r-4 border-cyan-500">
+                    <p class="text-sm text-blue-800">💡 <strong>نصيحة كاريير بلس:</strong> ركز على إنجازاتك بالأرقام (مثلاً: زيادة المبيعات 20%، توفير 10 ساعات عمل أسبوعياً).</p>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">آخر وظيفة (الشركة، المسمى، التاريخ) *</label>
+                        <textarea name="exp1" required rows="2" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-cyan-500 outline-none" placeholder="شركة كذا، موظف استقبال، من 2020 إلى الآن"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">أهم 3 إنجازات في هذه الوظيفة *</label>
+                        <textarea name="achievements1" required rows="3" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-cyan-500 outline-none" placeholder="1. حققت.. 2. طورت.. 3. فزت بـ.."></textarea>
+                    </div>
+                    <hr>
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">الوظيفة السابقة (اختياري)</label>
+                        <textarea name="exp2" rows="2" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-cyan-500 outline-none"></textarea>
+                    </div>
+                </div>
+            </div>
+
+
+             <!-- Step 4: Skills -->
+             <div class="form-step step-hidden" id="step-4">
+                <h2 class="text-xl font-bold mb-6 flex items-center gap-2">
+                    <span class="secondary-color text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">4</span>
+                    التعليم والمهارات
+                </h2>
+                <div class="grid grid-cols-1 gap-4">
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">المؤهل الدراسي (الكلية، الجامعة، سنة التخرج) *</label>
+                        <input type="text" name="education" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-cyan-500 outline-none" placeholder="بكالوريوس تجارة، جامعة القاهرة، 2018">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">المهارات التقنية والبرامج (Excel, Photoshop...)</label>
+                        <input type="text" name="hardSkills" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-cyan-500 outline-none" placeholder="إجادة تامة لبرامج Office">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">اللغات ومستوى الإجادة</label>
+                        <input type="text" name="languages" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-cyan-500 outline-none" placeholder="العربية (أم)، الإنجليزية (جيد جداً)">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">أهم الكورسات التي حصلت عليها</label>
+                        <textarea name="courses" rows="2" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-cyan-500 outline-none"></textarea>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Final Step: Success -->
+            <div class="form-step step-hidden text-center" id="step-5">
+                <div class="py-8">
+                    <div class="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-4">
+                        <svg class="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">رائع! انتهينا</h2>
+                    <p class="text-gray-600 mb-6">اضغط على الزر بالأسفل لنسخ بياناتك وإرسالها لـ "كاريير بلس" للبدء فوراً.</p>
+                    
+                    <div id="output-area" class="hidden text-right p-4 bg-gray-50 border rounded-lg mb-4 text-xs font-mono overflow-auto max-h-40"></div>
+                    
+                    <button type="button" onclick="copyData()" id="copy-btn" class="secondary-color text-white px-8 py-3 rounded-full font-bold shadow-lg hover:opacity-90 transition-all flex items-center justify-center gap-2 mx-auto">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+                        نسخ البيانات وإرسالها
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- Navigation Buttons -->
+            <div class="mt-8 flex justify-between items-center" id="nav-btns">
+                <button type="button" id="prev-btn" onclick="changeStep(-1)" class="px-6 py-2 text-gray-500 font-semibold invisible">السابق</button>
+                <button type="button" id="next-btn" onclick="changeStep(1)" class="primary-color text-white px-8 py-2 rounded-lg font-semibold hover:opacity-90 transition-all">التالي</button>
+            </div>
+        </form>
+
+
+        <!-- Footer Info -->
+        <div class="bg-gray-50 p-6 border-t text-center">
+            <p class="text-xs text-gray-400">جميع الحقوق محفوظة © Career Pulse 2024</p>
+        </div>
+    </div>
+
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 5;
+
+
+        function changeStep(n) {
+            const steps = document.querySelectorAll('.form-step');
+            
+            // Basic Validation before going next
+            if (n === 1) {
+                const activeFields = steps[currentStep-1].querySelectorAll('[required]');
+                let valid = true;
+                activeFields.forEach(f => {
+                    if(!f.value) {
+                        f.classList.add('border-red-500');
+                        valid = false;
+                    } else {
+                        f.classList.remove('border-red-500');
+                    }
+                });
+                if(!valid) return;
+            }
+
+
+            steps[currentStep-1].classList.remove('active-step');
+            steps[currentStep-1].classList.add('step-hidden');
+            
+            currentStep += n;
+            
+            if (currentStep > totalSteps) currentStep = totalSteps;
+            
+            steps[currentStep-1].classList.add('active-step');
+            steps[currentStep-1].classList.remove('step-hidden');
+
+
+            updateUI();
+        }
+
+
+        function updateUI() {
+            // Progress Bar
+            const prog = (currentStep / totalSteps) * 100;
+            document.getElementById('progress-bar').style.width = prog + '%';
+
+
+            // Nav Buttons
+            document.getElementById('prev-btn').style.visibility = currentStep === 1 || currentStep === 5 ? 'hidden' : 'visible';
+            document.getElementById('next-btn').style.display = currentStep === 5 ? 'none' : 'block';
+            document.getElementById('next-btn').innerText = currentStep === 4 ? 'مراجعة وإنهاء' : 'التالي';
+            
+            if(currentStep === 5) {
+                generateSummary();
+            }
+        }
+
+
+        function generateSummary() {
+            const formData = new FormData(document.getElementById('cv-form'));
+            let summary = `🚀 بيانات طلب سيرة ذاتية - كاريير بلس\n`;
+            summary += `-----------------------------------\n`;
+            for (let [key, value] of formData.entries()) {
+                if(value) summary += `• ${translateKey(key)}: ${value}\n`;
+            }
+            document.getElementById('output-area').innerText = summary;
+        }
+
+
+        function translateKey(key) {
+            const map = {
+                fullName: "الاسم", phone: "الهاتف", email: "الإيميل", linkedin: "لينكدإن",
+                location: "السكن", targetRole: "الوظيفة المستهدفة", targetIndustry: "القطاع",
+                summary: "النبذة", exp1: "آخر وظيفة", achievements1: "الإنجازات",
+                exp2: "الوظيفة السابقة", education: "التعليم", hardSkills: "المهارات",
+                languages: "اللغات", courses: "الدورات"
+            };
+            return map[key] || key;
+        }
+
+
+        function copyData() {
+            const text = document.getElementById('output-area').innerText;
+            const el = document.createElement('textarea');
+            el.value = text;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            
+            const btn = document.getElementById('copy-btn');
+            btn.innerText = "✅ تم النسخ! أرسلها الآن";
+            btn.classList.replace('secondary-color', 'bg-green-600');
+            
+            setTimeout(() => {
+                const phone = document.querySelector('input[name="phone"]').value || "";
+                alert("تم نسخ البيانات بنجاح! يمكنك الآن لصقها (Paste) في رسالة وإرسالها لـ Career Pulse.");
+            }, 500);
+        }
+    </script>
+</body>
+</html>
+
+
+
